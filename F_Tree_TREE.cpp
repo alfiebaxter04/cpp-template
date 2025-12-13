@@ -1,13 +1,15 @@
 #include <bits/stdc++.h>
 
-#ifndef ONLINE_JUDGE
-#include "debug.cpp"
-#endif
-
 using namespace std;
 using ll = long long;
 
+#define debug(x) cerr << #x << " = "; _print(x); cerr << endl;
+template <class T> void _print(const vector<T> &v) {cerr<<"[ ";for(auto& i:v)cerr<<i<<" ";cerr<<"] ";}
+
 void solve() {
+	int n, k;
+	cin >> n >> k;
+	
 	
 }
 
