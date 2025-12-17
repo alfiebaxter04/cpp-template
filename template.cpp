@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 #ifndef ONLINE_JUDGE
-#include "debug.cpp"
+#include "problems/debug.cpp"
 #endif
 
 using namespace std;
