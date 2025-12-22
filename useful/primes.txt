@@ -1,0 +1,25 @@
+const int MAXN = 200005;
+int mp[MAXN];
+
+// generate minimum prime that divides each number
+void pre() {
+	for (int i = 2; i < MAXN; i++) {
+		if (mp[i] == 0) {
+			for (int j = i; j < MAXN; j += i) {
+				if (mp[j] == 0) mp[j] = i;
+			}
+		}
+	}
+}
+
+// split number into prime factors
+// this implementation does not count the factors
+vector<int> fact(int x) {
+	vector<int> out;
+	while (x > 1) {
+		int p = mp[x];
+		out.push_back(p);
+		while (x % p == 0) x /= p;
+	}
+	return out;
+}
