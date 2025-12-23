@@ -1,65 +1,42 @@
 #include <bits/stdc++.h>
 
+#ifndef ONLINE_JUDGE
+#include "problems/debug.cpp"
+#endif
+
 using namespace std;
 using ll = long long;
 
-#define fastio ios::sync_with_stdio(false); cin.tie(nullptr);
-#define debug(x) cerr << #x << " = "; _print(x); cerr << endl;
-
-struct chash {
-    static uint64_t splitmix64(uint64_t x) {
-        x += 0x9e3779b97f4a7c15;
-        x = (x ^ (x >> 30)) * 0xbf58476d1ce4e5b9;
-        x = (x ^ (x >> 27)) * 0x94d049bb133111eb;
-        return x ^ (x >> 31);
-    }
-    size_t operator()(uint64_t x) const {
-        static const uint64_t FIXED_RANDOM = chrono::steady_clock::now().time_since_epoch().count();
-        return splitmix64(x + FIXED_RANDOM);
-    }
-};
-
-template <class T> void _print(const vector<T> &v) {
-    cerr << "[ ";
-    for (auto &i : v) cerr << i << " ";
-    cerr << "]";
+int query(int L, int R) {
+	int p, mp;
+	cout << "1 " << L << " " << R << endl;
+	cin >> p;
+	cout << "2 " << L << " " << R << endl;
+	cin >> mp;
+	return mp - p;
 }
-
-template <class T> void _print(const vector<vector<T>> &v) {
-    cerr << "[\n";
-    for (auto &row : v) {
-        cerr << "  [ ";
-        for (auto &val : row) cerr << val << " ";
-        cerr << "]\n";
-    }
-    cerr << "]";
-}
-
-const int INF = 1e9;
-const ll LINF = 1e18;
-const int MOD = 1e9 + 7;
-
-ll modpow(ll base, ll exp, ll mod = MOD) {
-	ll res = 1;
-	base %= mod;
-	while (exp > 0) {
-		if (exp & 1) res = (res * base) % mod;
-		base = (base * base) % mod;
-		exp >>= 1;
-	}
-	return res;
-}
-
 
 void solve() {
-	
+	int n; cin >> n;
+
+	int D = query(1, n);
+	int ansL;
+	int lo = 1, hi = n - D + 1;
+	while (lo <= hi) {
+		int mid = lo + (hi - lo) / 2;
+		if (query(1, mid) > 0) {
+			ansL = mid;
+			hi = mid - 1;
+		} else {
+			lo = mid + 1;	
+		}
+	}
+	cout << "! " << ansL << " " << ansL + D - 1 << endl;
 }
 
-int main(){
-	fastio;
-	int t;
-	cin >> t;
-	
+signed main(){
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+	int t; cin >> t;
 	while (t--) solve();
-	return 0;
 }
