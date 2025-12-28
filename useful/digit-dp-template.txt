@@ -1,5 +1,5 @@
 class Solution {
-    // idx, tight, started, length, balance
+    // idx, tight, started, balance
     const int BALANCED = 200;
     long long dp[20][2][2][400];
 public:
