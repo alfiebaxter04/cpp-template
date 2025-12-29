@@ -1,3 +1,5 @@
+example solution
+
 class Solution {
     // idx, tight, started, balance
     const int BALANCED = 200;
