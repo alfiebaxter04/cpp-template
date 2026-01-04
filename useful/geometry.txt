@@ -1,3 +1,5 @@
+constexpr double PI = 3.14159265358979323846;
+
 formula for minor segment of circle (straight line cut)
 
 1/2 * r * r * (theta - sin(theta))

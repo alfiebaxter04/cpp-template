@@ -23,3 +23,17 @@ vector<int> fact(int x) {
 	}
 	return out;
 }
+
+
+// trial divison sqrt(n)
+map<ll, int> fact(int x) {
+    map<ll, int> ret;
+    for (ll i = 2; i * i <= x; i++) {
+        while (x % i == 0) {
+            ret[i]++;
+            x /= i;
+        }
+    }
+    if (x > 1) ret[n]++;
+    return ret;
+}
