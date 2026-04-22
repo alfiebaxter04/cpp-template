@@ -5,7 +5,7 @@
 #endif
 
 using namespace std;
-using ll = long long;
+#define int long long
 
 void solve() {
 	
