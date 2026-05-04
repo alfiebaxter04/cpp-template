@@ -1,0 +1,8 @@
+
+
+vector<int> A;
+
+....
+
+sort(A.begin(), A.end());
+A.erase(unique(A.begin(), A.end()), A.end());

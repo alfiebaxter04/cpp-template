@@ -1,0 +1,13 @@
+// this hurts my head
+
+vector<long long> S(n + 1, 0);
+// S[n] is cost to reach index n-1 (always 0)
+// S[n-1] is cost to reach index n-2 (via n-1 -> n-2)
+
+for (int i = n - 1; i >= 1; i--) {
+    long long step = calculateCost(i, i - 1); // Cost from i to i-1
+    S[i] = S[i + 1] + step;
+}
+
+// QUERY [L, R] (where L > R):
+long long total = S[R + 1] - S[L + 1];
