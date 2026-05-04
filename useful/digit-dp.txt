@@ -1,4 +1,4 @@
-example solution
+Example solution. One day I will learn to do this iteratively.
 
 class Solution {
     // idx, tight, started, balance
