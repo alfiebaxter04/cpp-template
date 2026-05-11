@@ -13,17 +13,35 @@ void pre() {
 }
 
 // split number into prime factors
-// this implementation does not count the factors
-vector<int> fact(int x) {
-	vector<int> out;
+map<int, int> fact(int x) {
+	map<int, int> out;
 	while (x > 1) {
 		int p = mp[x];
-		out.push_back(p);
-		while (x % p == 0) x /= p;
+		while (x % p == 0) {
+			out[p]++;
+			x /= p;
+		}
 	}
 	return out;
 }
 
+vector<int> divisors(int x) {
+	vector<int> out {1};
+	map<int, int> facts = fact(x);
+	for (auto [k, v] : facts) {
+		int sz = out.size();
+        int mult = k;
+		for (int j = 0; j < v; j++) {
+			for (int i = 0; i < sz; i++) {
+				out.push_back(mult*out[i]);
+            }
+            mult *= k;
+        }
+	}
+    sort(out.begin(), out.end());
+	out.erase(unique(out.begin(), out.end()), out.end());
+    return out;
+}
 
 // trial divison sqrt(n)
 map<ll, int> fact(int x) {

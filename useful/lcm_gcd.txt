@@ -1,0 +1,5 @@
+a * b = lcm(a, b) * gcd(a, b)
+
+lcm(a, b) = (a * b) / gcd(n, m)
+
+a, b are coprime if gcd(a, b) == 1

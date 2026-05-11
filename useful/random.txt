@@ -1,0 +1,7 @@
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+
+int get_random(int a, int b) {
+    // uniform_int_distribution is inclusive: [a, b]
+    uniform_int_distribution<int> dist(a, b);
+    return dist(rng);
+}
