@@ -8,13 +8,15 @@ using namespace std;
 #define int long long
 
 void solve() {
-	int w, h, a, b, ax, ay, bx, by;
-	cin >> w >> h >> a >> b >> ax >> ay >> bx >> by;
+	int n;
+	cin >> n;
+	vector<int> a(n);
+	for (int& x : a) cin >> x;
 
-	bool c1 = max(0LL, abs(ax - bx)) % a == 0;
-	bool c2 = max(0LL, abs(ay - by)) % b == 0;
-
-	if ((c1 && c2) || (c1 && abs(ax-bx) >= a) || (c2 && abs(ay-by) >= b)) cout << "Yes\n";
+	bool can = false;
+	for (int x : a) if (x == 100) can = true;
+	
+	if (can) cout << "Yes\n";
 	else cout << "No\n";
 }
 
