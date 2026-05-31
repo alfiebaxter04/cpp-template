@@ -1,0 +1,16 @@
+int ST[MAXN][LOG(MAXN)];
+
+void pre() {
+	for (int i = 1; i <= n; i++)
+		ST[i][0] = i;
+
+	for (int j = 1; (1<<j) <= n; j++) {
+		int sz = 1 << j;
+		for (int i = 1; i+sz-1 <= n; i++) {
+			int L = ST[i][j-1];
+			int R = ST[i+sz/2][j-1];
+			if (a[L] >= a[R]) ST[i][j] = L;
+			else 			  ST[i][j] = R;
+		}
+	}
+}

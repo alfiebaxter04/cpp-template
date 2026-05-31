@@ -1,0 +1,26 @@
+binary search template
+
+while (L <= R) {
+    int mid = L + (R - L) / 2;
+    if (check(mid) < check(mid + 1)) {
+        L = mid + 1;
+    } else {
+        // The slope is flat or negative, peak is at mid or to the left
+        best_x = mid;
+        R = mid - 1;
+    }
+}
+
+ternary search example
+use R - L > 2 if values are discrete then brute force after
+
+int L = 0, R = totA;
+while (R - L > 2) {
+    int m1 = L + (R - L) / 3;
+    int m2 = R - (R - L) / 3;
+    int f1 = check(m1);
+    int f2 = check(m2);
+    if (f1 < f2) L = m1;
+    else R = m2;
+}
+	
